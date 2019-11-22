@@ -46,8 +46,8 @@ public class _Draft_LoginPageTest extends base{
 		{
 		LoginPO l = new LoginPO(driver);
 		l.getLoginButton().click();
-		softAssertion.assertEquals(l.getusernameRequiredMessage().getText(),"tUser name is required");
-		softAssertion.assertEquals(l.getpasswordRequiredMessage().getText(), "tPassword is required");
+		softAssertion.assertEquals(l.getusernameRequiredMessage().getText(),"User name is required");
+		softAssertion.assertEquals(l.getpasswordRequiredMessage().getText(), "Password is required");
 		softAssertion.assertAll();
 		}
 
