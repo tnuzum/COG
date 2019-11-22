@@ -20,11 +20,8 @@ public class LoginPO {
 		By topOfPageLogo = By.xpath("(//div[@class='logo'])[1]");
 		By bottomOfPageLogo = By.xpath("(//div[@class='logo'])[2]");
 		
-//		By credentialsErrorMessage = By.xpath("//div[@id='loginForm']/form/div[1]/ul/li");
-//		By ForgotUsername = By.xpath("//a[@onclick='ForgotUsername()']"); //link
-//		By ForgotPassword = By.xpath("//a[@onclick='ForgotPassword()']"); //link
-//		By RememberUsernameCheckbox = By.xpath("//input[@name='RememberUsername']");
-//		By RememberUsernameLabel = By.xpath("//label[@for='RememberUsername']"); 
+		By credentialsErrorMessage = By.xpath("//div[@class='validation-summary-errors errorfontcolor']/ul/li");
+		By ForgotPassword = By.className("login-link");
 		
 		
 	// CONSTRUCTOR
@@ -47,10 +44,10 @@ public class LoginPO {
 		{
 			return driver.findElement(loginButton);
 		}
-//		public WebElement getcredentialsErrorMessage()
-//		{
-//			return driver.findElement(credentialsErrorMessage);
-//		}
+		public WebElement getcredentialsErrorMessage()
+		{
+			return driver.findElement(credentialsErrorMessage);
+		}
 		public WebElement getusernameRequiredMessage()
 		{
 			return driver.findElement(usernameRequiredMessage);
@@ -59,22 +56,10 @@ public class LoginPO {
 		{
 			return driver.findElement(passwordRequiredMessage);
 		}
-//		public WebElement getForgotUsername()
-//		{
-//			return driver.findElement(ForgotUsername);
-//		}
-//		public WebElement getForgotPassword()
-//		{
-//			return driver.findElement(ForgotPassword);
-//		}
-//		public WebElement getRememberUsernameLabel()
-//		{
-//			return driver.findElement(RememberUsernameLabel);
-//		}
-//		public WebElement getRememberUsernameCheckbox()
-//		{
-//			return driver.findElement(RememberUsernameCheckbox);
-//		}
+		public WebElement getForgotPassword()
+		{
+			return driver.findElement(ForgotPassword);
+		}
 		public WebElement getTopOfPageLogo()
 		{
 			return driver.findElement(topOfPageLogo);
