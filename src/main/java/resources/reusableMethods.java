@@ -6,7 +6,10 @@ import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.Select;
+
 import pageObjects.LoginPO;
+import pageObjects.SelectClubPO;
 import resources.base;
 
 public class reusableMethods extends base {
@@ -27,6 +30,15 @@ public class reusableMethods extends base {
 		} catch (NoSuchElementException e) {
 			return false;
 		}
+	}
+	
+	public static String selectClub()
+	{
+		SelectClubPO sc = new SelectClubPO(driver);
+		Select s= new Select(sc.getClubDropdown());
+		s.selectByVisibleText("Jonas Sports-Plex");
+		sc.getSelectButton().click();
+		return null;
 	}
 
 	public static String getDateFormater() {
