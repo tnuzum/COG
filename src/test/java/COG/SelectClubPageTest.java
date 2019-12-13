@@ -33,7 +33,7 @@ public class SelectClubPageTest extends base{
 			Assert.assertEquals(driver.getTitle(),"Jonas Fitness: Compete On The Go");
 		}
 	@Test (priority = 2, description="pageVerifications")
-	public void pageVerifications() throws InterruptedException
+		public void pageVerifications() throws InterruptedException
 		{
 			SoftAssert softAssertion= new SoftAssert();
 			reusableMethods.employee1Login();
@@ -45,7 +45,7 @@ public class SelectClubPageTest extends base{
 			softAssertion.assertAll();
 		}
 	@Test (priority = 3, description="Club Required")
-	public void clubRequired()
+		public void clubRequired()
 		{
 			SoftAssert softAssertion= new SoftAssert();
 			SelectClubPO sc = new SelectClubPO(driver);
@@ -54,7 +54,7 @@ public class SelectClubPageTest extends base{
 			softAssertion.assertAll();
 		}
 	@Test (priority = 4, description="Select Club")
-	public void selectClub() throws InterruptedException
+		public void selectClub() throws InterruptedException
 		{
 		SelectClubPO sc = new SelectClubPO(driver);
 		Assert.assertTrue(sc.getClubDropdown().isEnabled());	   
