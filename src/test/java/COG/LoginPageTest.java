@@ -50,9 +50,8 @@ public class LoginPageTest extends base{
 			softAssertion.assertEquals(l.getpasswordRequiredMessage().getText(), "Password is required");
 			softAssertion.assertAll();
 		}
-	
 	@Test (priority = 4, description="Wrong Credentials")
-	public void wrongCredentials() throws InterruptedException
+		public void wrongCredentials() throws InterruptedException
 		{
 			LoginPO l = new LoginPO(driver);
 			l.getUserName().sendKeys(prop.getProperty("Employee1UserName"));
