@@ -14,10 +14,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -28,6 +30,10 @@ public class base {
 	String projectPath = System.getenv("COG_HOME");
 
 	public WebDriver initializeDriver() throws IOException {
+		
+		DesiredCapabilities dcch = DesiredCapabilities.chrome();
+		dcch.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+		dcch.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		
 		prop = new Properties();
 		FileInputStream fis=new FileInputStream(projectPath + "\\src\\main\\java\\resources\\properties");
@@ -70,8 +76,10 @@ public class base {
 		if (testEnvironment.equals("local")){
 				if (browserName.equals("Chrome")) {
 					log.info("Chrome Browser: Running Tests on local machine");
+					ChromeOptions co = new ChromeOptions();
+					co.merge(dcch);
 					System.setProperty("webdriver.chrome.driver", "C:\\Automation\\libs\\webdrivers\\chromedriver.exe");
-					driver = new ChromeDriver();}
+					driver = new ChromeDriver(co);}
 				if (browserName.equals("Firefox")) {
 					log.info("Firefox Browser: Running Tests on local machine");
 					System.setProperty("webdriver.gecko.driver", "C:\\Automation\\libs\\webdrivers\\geckodriver.exe");
