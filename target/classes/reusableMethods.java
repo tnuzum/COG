@@ -7,7 +7,6 @@ import java.util.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
-
 import pageObjects.LoginPO;
 import pageObjects.SelectClubPO;
 import resources.base;
@@ -15,11 +14,12 @@ import resources.base;
 public class reusableMethods extends base {
 
 	public static String employee1Login() throws InterruptedException{
-		reusableWaits.waitForLoginPage();
+		reusableWaits.waitForLoginPage(10);
 		LoginPO l = new LoginPO(driver);
 		l.getUserName().sendKeys(prop.getProperty("Employee1UserName"));
 		l.getPassword().sendKeys(prop.getProperty("Employee1Password"));
 		l.getLoginButton().click();
+		reusableWaits.waitForSelectClubPage(10);
 		return null;
 	}
 
@@ -38,6 +38,7 @@ public class reusableMethods extends base {
 		Select s= new Select(sc.getClubDropdown());
 		s.selectByVisibleText("Jonas Sports-Plex");
 		sc.getSelectButton().click();
+		reusableWaits.waitForDashboard(10);
 		return null;
 	}
 
