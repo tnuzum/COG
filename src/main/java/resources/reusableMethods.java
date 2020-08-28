@@ -9,7 +9,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
 import pageObjects.LoginPO;
 import pageObjects.SelectClubPO;
-import resources.base;
 
 public class reusableMethods extends base {
 
