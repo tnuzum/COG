@@ -74,26 +74,29 @@ public class base {
 		}
 		else {
 		if (testEnvironment.equals("local")){
-				if (browserName.equals("Chrome")) {
-					log.info("Chrome Browser: Running Tests on local machine");
-					ChromeOptions co = new ChromeOptions();
-					co.merge(dcch);
-					System.setProperty("webdriver.chrome.driver", "C:\\Automation\\libs\\webdrivers\\chromedriver.exe");
-					driver = new ChromeDriver(co);}
-				if (browserName.equals("Firefox")) {
-					log.info("Firefox Browser: Running Tests on local machine");
-					System.setProperty("webdriver.gecko.driver", "C:\\Automation\\libs\\webdrivers\\geckodriver.exe");
-					driver = new FirefoxDriver(); }
-				if (browserName.equals("Edge")) {
-					log.info("Edge Browser: Running Tests on local machine");
-					driver = new EdgeDriver(); }
-				if (browserName.equals("IE")) {
-					log.info("IE Browser: Running Tests on local machine");
-					InternetExplorerOptions options = new InternetExplorerOptions();
-					System.setProperty("webdriver.ie.driver","C:\\Automation\\libs\\webdrivers\\IEDriverServer.exe");
-					options.setCapability("ignoreZoomSetting", true);
-					driver = new InternetExplorerDriver(options); 
-					}	
+			if (browserName.equals("Chrome")) {
+				ChromeOptions co = new ChromeOptions();
+				co.merge(dcch);
+				System.setProperty("webdriver.chrome.driver",
+						projectPath + "\\src\\main\\java\\webDrivers\\chromedriver.exe");
+				driver = new ChromeDriver(co);
+			}
+			if (browserName.equals("Firefox")) {
+				System.setProperty("webdriver.gecko.driver",
+						projectPath + "\\src\\main\\java\\webDrivers\\geckodriver.exe");
+				driver = new FirefoxDriver();
+			}
+			if (browserName.equals("Edge")) {
+				System.setProperty("webdriver.edge.driver",
+						projectPath + "\\src\\main\\java\\webDrivers\\msedgedriver.exe");
+				driver = new EdgeDriver();
+			}
+			if (browserName.equals("IE")) {
+				InternetExplorerOptions options = new InternetExplorerOptions();
+				System.setProperty("webdriver.ie.driver",projectPath + "\\src\\main\\java\\webdrivers\\IEDriverServer.exe");
+				options.setCapability("ignoreZoomSetting", true);
+				driver = new InternetExplorerDriver(options); 
+				}
 			}
 		}
 		
