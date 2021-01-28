@@ -42,3 +42,4 @@ test-output/testng-reports.js
 test-output/testng-reports1.css
 test-output/testng-reports2.js
 test-output/testng-results.xml
+/target/
