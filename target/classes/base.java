@@ -22,6 +22,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class base {
 	public static WebDriver driver;
@@ -36,7 +37,7 @@ public class base {
 		dcch.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		
 		prop = new Properties();
-		FileInputStream fis=new FileInputStream(projectPath + "\\src\\main\\java\\resources\\properties");
+		FileInputStream fis=new FileInputStream(projectPath + "/src/main/java/resources/properties");
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
 		String testEnvironment = prop.getProperty("test_environment");
@@ -98,6 +99,10 @@ public class base {
 				driver = new InternetExplorerDriver(options); 
 				}
 			}
+			if (browserName.equals("Safari")) {
+				driver = new SafariDriver();
+				}
+		
 		}
 		
 		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");//or, DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy  HH:mm:ss");
