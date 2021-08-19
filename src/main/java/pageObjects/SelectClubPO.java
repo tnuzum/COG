@@ -13,7 +13,7 @@ public class SelectClubPO {
 		By pageHeader = By.xpath("//div[contains(@class, 'login-form')]/h3");
 		By clubDropdown = By.id("ddl_clubSelection");
 		By selectButton = By.id("submit");
-		By clubRequiredMessage = By.xpath("//span[@for='ddl_clubSelection']");
+		By clubRequiredMessage = By.xpath("//span[@data-valmsg-for='SelectedClub']");
 		By topOfPageLogo = By.xpath("(//div[@class='logo'])[1]");
 		By bottomOfPageLogo = By.xpath("(//div[@class='logo'])[2]");
 		
