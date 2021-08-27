@@ -23,6 +23,8 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class base {
 	public static WebDriver driver;
 	public static Properties prop; //or, public static Properties prop = new Properties(); this was recommended to resolve an NPE, but I didn't need it
@@ -47,20 +49,38 @@ public class base {
 				DesiredCapabilities dc = new DesiredCapabilities();
 				dc.setBrowserName("chrome");
 				dc.setPlatform(Platform.WINDOWS);
-				System.setProperty("webdriver.chrome.driver", "c:\\WebDrivers\\chromedriver.exe");
+//				System.setProperty("webdriver.chrome.driver", "c:\\WebDrivers\\chromedriver.exe");
+				
+				WebDriverManager.chromedriver().setup();
+
+				System.out.println(WebDriverManager.chromedriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.chromedriver().getDownloadedDriverVersion());
+				
 				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);}
 			if (browserName.equals("Firefox")) {
 				log.info("Firefox Browser: Running Tests on Selenium Grid");
 				DesiredCapabilities dc = new DesiredCapabilities();
 				dc.setBrowserName("firefox");
 				dc.setPlatform(Platform.WINDOWS);
-				System.setProperty("webdriver.gecko.driver","c:\\WebDrivers\\geckodriver.exe");
+//				System.setProperty("webdriver.gecko.driver","c:\\WebDrivers\\geckodriver.exe");
+				
+				WebDriverManager.firefoxdriver().setup();
+
+				System.out.println(WebDriverManager.firefoxdriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.firefoxdriver().getDownloadedDriverVersion());
+				
 				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);}
 			if (browserName.equals("Edge")) {
 				log.info("Edge Browser: Running Tests on Selenium Grid");
 				DesiredCapabilities dc = new DesiredCapabilities();
 				dc.setBrowserName("MicrosoftEdge");
 				dc.setPlatform(Platform.WINDOWS);
+				
+				WebDriverManager.edgedriver().setup();
+
+				System.out.println(WebDriverManager.edgedriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.edgedriver().getDownloadedDriverVersion());
+				
 				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);}
 		/*	if (browserName.equals("IE")) {
 				log.info("IE Browser: Running Tests on Selenium Grid");
@@ -77,18 +97,36 @@ public class base {
 			if (browserName.equals("Chrome")) {
 				ChromeOptions co = new ChromeOptions();
 				co.merge(dcch);
-				System.setProperty("webdriver.chrome.driver",
-						projectPath + "\\src\\main\\java\\webDrivers\\chromedriver.exe");
+//				System.setProperty("webdriver.chrome.driver",
+//						projectPath + "\\src\\main\\java\\webDrivers\\chromedriver.exe");
+				
+				WebDriverManager.chromedriver().setup();
+
+				System.out.println(WebDriverManager.chromedriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.chromedriver().getDownloadedDriverVersion());
+				
 				driver = new ChromeDriver(co);
 			}
 			if (browserName.equals("Firefox")) {
-				System.setProperty("webdriver.gecko.driver",
-						projectPath + "\\src\\main\\java\\webDrivers\\geckodriver.exe");
+//				System.setProperty("webdriver.gecko.driver",
+//						projectPath + "\\src\\main\\java\\webDrivers\\geckodriver.exe");
+				
+				WebDriverManager.firefoxdriver().setup();
+
+				System.out.println(WebDriverManager.firefoxdriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.firefoxdriver().getDownloadedDriverVersion());
+				
 				driver = new FirefoxDriver();
 			}
 			if (browserName.equals("Edge")) {
-				System.setProperty("webdriver.edge.driver",
-						projectPath + "\\src\\main\\java\\webDrivers\\msedgedriver.exe");
+//				System.setProperty("webdriver.edge.driver",
+//						projectPath + "\\src\\main\\java\\webDrivers\\msedgedriver.exe");
+				
+				WebDriverManager.edgedriver().setup();
+
+				System.out.println(WebDriverManager.edgedriver().getDownloadedDriverVersion());
+				log.info(WebDriverManager.edgedriver().getDownloadedDriverVersion());
+				
 				driver = new EdgeDriver();
 			}
 			if (browserName.equals("IE")) {
