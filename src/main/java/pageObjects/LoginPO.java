@@ -14,8 +14,8 @@ public class LoginPO {
 		By password = By.id("Password"); //text input field
 		By loginButton = By.id("submit");
 
-		By usernameRequiredMessage = By.xpath("//span[@for='UserName']");
-		By passwordRequiredMessage = By.xpath("//span[@for='Password']");
+		By usernameRequiredMessage = By.xpath("//span[@data-valmsg-for='UserName']");
+		By passwordRequiredMessage = By.xpath("//span[@data-valmsg-for='Password']");
 		
 		By topOfPageLogo = By.xpath("(//div[@class='logo'])[1]");
 		By bottomOfPageLogo = By.xpath("(//div[@class='logo'])[2]");
