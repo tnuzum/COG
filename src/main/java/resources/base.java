@@ -97,6 +97,7 @@ public class base {
 			if (browserName.equals("Chrome")) {
 				ChromeOptions co = new ChromeOptions();
 				co.merge(dcch);
+				co.addArguments("--disable-gpu");
 //				System.setProperty("webdriver.chrome.driver",
 //						projectPath + "\\src\\main\\java\\webDrivers\\chromedriver.exe");
 				
