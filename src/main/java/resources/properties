@@ -1,5 +1,5 @@
 test_environment = local
 browser = Chrome
-COGLoginPage = https://ess-web-future2.test-jfisoftware.com:8945/CompeteOnTheGo/home/index/236
+COGLoginPage = https://ess-qa.dev-jfisoftware.com/CompeteOnTheGo/home/index/236
 Employee1UserName = todd
 Employee1Password = 111

@@ -27,14 +27,14 @@ public class reusableWaits extends base {
 	public static String waitForSelectClubPage(int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions
-				.urlMatches("https://ess-web-future2.test-jfisoftware.com:8945/CompeteOnTheGo/Account/ClubSelection"));
+				.urlMatches("https://ess-qa.dev-jfisoftware.com/CompeteOnTheGo/Account/ClubSelection"));
 		return null;
 	}
 	
 	public static String waitForDashboard(int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions
-				.urlMatches("https://ess-web-future2.test-jfisoftware.com:8945/CompeteOnTheGo/"));
+				.urlMatches("https://ess-qa.dev-jfisoftware.com/CompeteOnTheGo/"));
 		return null;
 	} 
 
