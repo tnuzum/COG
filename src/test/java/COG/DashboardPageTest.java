@@ -11,7 +11,7 @@ import resources.reusableMethods;
 
 public class DashboardPageTest extends base {
 
-	public static String baseURL = "https://ess-web-future2.test-jfisoftware.com:8945/";
+	public static String baseURL = "https://ess-qa.dev-jfisoftware.com/";
 
 	@BeforeTest
 	public void initialize() throws Throwable {
@@ -141,7 +141,7 @@ public class DashboardPageTest extends base {
 
 	@AfterTest
 	public void teardown() {
-		driver.close();
+		driver.quit();
 		driver = null;
 	}
 
